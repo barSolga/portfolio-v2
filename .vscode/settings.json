@@ -1,0 +1,12 @@
+{
+    "files.exclude": {
+        "node_modules/": true,
+        "**/*.js": true,
+        "**/*.js.map": true,
+        "**/*.d.ts": true,
+        "next.config.ts": true,
+        ".next": true,
+        ".vscode": true
+    },
+    "git.openRepositoryInParentFolders": "always"
+}
