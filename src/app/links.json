@@ -1,0 +1,51 @@
+[
+    {
+        "id": "root_1",
+        "name": "Expirience",
+        "href": "/#expirience"
+    },
+    {
+        "id": "root_2",
+        "name": "Techstack",
+        "href": "/#techstack"
+    },
+    {
+        "id": "root_3",
+        "name": "Projects",
+        "href": "/#projects",
+        "subpages": [
+            {
+                "id": "projects_2",
+                "name": "Commercial",
+                "href": "/#commercial"
+            },
+            {
+                "id": "projects_2",
+                "name": "Private",
+                "href": "/#private"
+            }
+        ]
+    },
+    {
+        "id": "root_4",
+        "name": "About",
+        "href": "/#about",
+        "subpages": [
+            {
+                "id": "about_1",
+                "name": "Library",
+                "href": "/#library"
+            },
+            {
+                "id": "about_2",
+                "name": "Hobby",
+                "href": "/#hobby"
+            }
+        ]
+    },
+    {
+        "id": "root_5",
+        "name": "Contact",
+        "href": "/#contact"
+    }
+]

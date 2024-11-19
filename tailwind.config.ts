@@ -7,10 +7,16 @@ export default {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    screens: {
+      sm: "480px",
+      md: "768px",
+      lg: "976px",
+      xl: "1440px"
+    },
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "#fff",
+        foreground: "#000"
       },
     },
   },
@@ -18,9 +24,9 @@ export default {
     {
       test: /\.scss$/,
       use: [
-        'style-loader',
-        'css-loader',
-        'sass-loader',
+        "style-loader",
+        "css-loader",
+        "sass-loader",
       ],
     },
   ],
