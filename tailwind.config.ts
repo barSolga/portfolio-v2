@@ -16,8 +16,11 @@ export default {
     extend: {
       colors: {
         background: "#fff",
-        foreground: "#000"
+        foreground: "#555"
       },
+      zIndex: {
+        "top": "9999",
+      }
     },
   },
   rules: [

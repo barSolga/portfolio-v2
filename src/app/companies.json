@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "name": "Morele Sp Z O.O",
+        "location": "Krakow",
+        "startDate": "01/2023",
+        "endDate": "12/2023",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, nam natus perspiciatis totam repudiandae explicabo dicta nesciunt, quaerat, a magni architecto blanditiis? Debitis, consequatur!",
+        "skills": [
+            "Research",
+            "HTML",
+            "SQL",
+            "Contact with Customer"
+        ]
+    }
+]

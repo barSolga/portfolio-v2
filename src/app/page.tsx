@@ -1,10 +1,14 @@
-import NavBar from "@/components/Navbar/Navbar";
+import HeroSection from "./landing/HeroSection";
+import ExpirienceSection from "./landing/ExpirienceSection";
+import TechstackSection from "./landing/TechstackSection";
+import companies from "@/app/companies.json";
 
 export default function HomePage() {
     return (
         <main>
-            <NavBar />
-            Hello HomePage
+            <HeroSection />
+            <ExpirienceSection companies={companies} />
+            <TechstackSection />
         </main>
     );
 }

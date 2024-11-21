@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.scss";
+import NavBar from "@/components/Navbar/Navbar";
+import BackToTop from "@/components/Clickables/BackToTop";
 
-const interFont = Inter({ subsets: ["latin"], weight: ["100", "500", "900"] });
+const interFont = Poppins({ subsets: ["latin"], weight: ["100", "500", "900"] });
 
 export const metadata: Metadata = {
   title: "Bartosz Sołga - Portfolio",
@@ -17,7 +19,9 @@ export default function RootLayout({ children }: Properties) {
   return (
     <html lang="en">
       <body className={`${interFont.className}`}>
+        <NavBar />
         {children}
+        <BackToTop />
       </body>
     </html>
   );
