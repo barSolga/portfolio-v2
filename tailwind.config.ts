@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-export default {
+const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,27 +11,30 @@ export default {
       sm: "480px",
       md: "768px",
       lg: "976px",
-      xl: "1440px"
+      xl: "1440px",
     },
     extend: {
       colors: {
-        background: "#fff",
-        foreground: "#555"
+        background: {
+          default: "hsl(0, 0%, 100%)",
+          dimmed: "hsl(0, 0%, 95%)"
+        },
+        textColor: "hsl(210, 47%, 18%)",
+        primary: {
+          default: "hsl(28, 100%, 50%)",
+          light: "rgba(255, 119, 0, .34)"
+        },
+        secondaryColor: "hsl(173, 83%, 54%)"
       },
       zIndex: {
-        "top": "9999",
-      }
+        top: "9999",
+      },
+      animation: {
+        wiggle: 'wiggle 1s ease-in-out infinite',
+      },
     },
   },
-  rules: [
-    {
-      test: /\.scss$/,
-      use: [
-        "style-loader",
-        "css-loader",
-        "sass-loader",
-      ],
-    },
-  ],
   plugins: [],
-} satisfies Config;
+};
+
+export default config;

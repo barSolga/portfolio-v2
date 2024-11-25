@@ -1,15 +1,14 @@
 "use client";
 
-import lightLogo from "@/../public/logo-light.svg";
+import logo from "@/../public/logo-dark.svg";
 import Image from "next/image";
 import Link from "next/link";
 import { Twirl as Hamburger } from "hamburger-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MobileMenu from "./MobileMenu";
 import links from "@/app/links.json";
 import DeskMenu from "./DeskMenu";
-import { BiLogoLinkedin, BiLogoInstagramAlt, BiLogoGithub } from "react-icons/bi";
-import { iconSize } from "@/Constants";
+import SocialIcons from "./SocialIcons";
 
 export interface NavLink {
     id: string,
@@ -19,34 +18,57 @@ export interface NavLink {
 };
 
 const NavBar = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const
+        [isOpen, setIsOpen] = useState(false),
+        nav = useRef<HTMLDivElement | null>(null),
+        onScroll = () => {
+            if (!nav.current)
+                return;
+            else if (window.scrollY > 1) {
+                nav?.current.classList.add("py-4", "bg-background-default", "shadow-lg");
+                nav?.current.classList.remove("py-8");
+            }
+            else {
+                nav?.current.classList.remove("py-4", "bg-background-default", "shadow-lg");
+                nav?.current.classList.add("py-8");
+            }
+
+        };
+
+    useEffect(() => {
+        if (!nav) return;
+
+        window.addEventListener("scroll", onScroll);
+
+        return () => window.removeEventListener("scroll", onScroll);
+    }, [nav]);
 
     return (
-        <nav className="relative container mx-auto p-4">
+        <div ref={nav} className="fixed w-full z-top px-4 py-8 transition-all duration-300">
+            <nav className="relative container mx-auto">
 
-            <div className="flex items-center justify-between" >
+                <div className="flex items-center justify-between" >
 
-                <Link href="/" className="pt-2">
-                    <Image src={lightLogo} alt="bsolga.dev" />
-                </Link>
+                    <Link href="/">
+                        <Image src={logo} alt="bsolga.dev" />
+                    </Link>
 
-                <DeskMenu links={links} />
+                    <DeskMenu links={links} />
 
-                <MobileMenu isOpen={isOpen} links={links} onClickFn={() => setIsOpen(!isOpen)} />
+                    <MobileMenu isOpen={isOpen} links={links} onClickFn={() => setIsOpen(false)} />
 
-                <div className="hidden space-x-3 lg:flex">
-                    <Link href=""><BiLogoLinkedin size={iconSize} /></Link>
-                    <Link href=""><BiLogoGithub size={iconSize} /></Link>
-                    <Link href=""><BiLogoInstagramAlt size={iconSize} /></Link>
+                    <div className="hidden space-x-3 lg:flex">
+                        <SocialIcons />
+                    </div>
+
+                    <div className="block lg:hidden">
+                        <Hamburger toggle={() => setIsOpen(!isOpen)} />
+                    </div>
+
                 </div>
 
-                <div className="block md:hidden">
-                    <Hamburger toggle={() => setIsOpen(!isOpen)} />
-                </div>
-
-            </div>
-
-        </nav>
+            </nav>
+        </div>
     );
 };
 

@@ -1,9 +1,17 @@
 interface Props {
-    name: string;
+    name?: string;
+    size?: {
+        y: number;
+        x: number;
+    };
 }
-const Label = ({ name }: Props) => {
+const Label = ({ name, size }: Props) => {
+
+    if (!size)
+        size = { x: 6, y: 2 };
+
     return (
-        <div className="px-4 py-2 rounded-xl bg-slate-100">
+        <div className={`px-${size.x} py-${size.y} rounded-xl bg-slate-100`}>
             {name}
         </div>
     );

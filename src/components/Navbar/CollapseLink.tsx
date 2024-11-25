@@ -31,13 +31,13 @@ const CollapseLink = ({ groupName, links, onClickFn }: Props) => {
 
     return (
         <div ref={collapse}>
-            <div onClick={() => setIsCollapsed(!isCollapsed)} className="flex items-center justify-between">
-                <span>{groupName}</span> <BiChevronDown size={iconSize} />
+            <div className="flex items-center justify-between cursor-pointer">
+                <Link onClick={onClickFn} className="hover:text-accent nav-link" href={`/#${groupName.split(" ").map(e => e.toLocaleLowerCase()).join("-")}`}>{groupName}</Link> <BiChevronDown size={iconSize} onClick={() => setIsCollapsed(!isCollapsed)} />
             </div>
-            <ul className={`${isCollapsed ? "" : "hidden"} flex flex-col py-2 pl-5 space-y-3 md:mt-5 md:bg-white md:drop-shadow-md md:p-5 md:absolute z-[top]`}>
+            <ul className={`${isCollapsed ? "" : "hidden"} flex flex-col py-2 pl-5 space-y-3 mt-4 lg:bg-white rounded-xl lg:drop-shadow-lg lg:p-5 lg:absolute z-[top]`}>
                 {
                     links.map(link => (
-                        <Link key={link.id} href={link.href} className="hover:text-black" onClick={onClickFn}>{link.name}</Link>
+                        <Link key={link.id} href={link.href} className="hover:text-accent nav-link" onClick={onClickFn}>{link.name}</Link>
                     ))
                 }
             </ul>

@@ -8,12 +8,12 @@ interface Props {
 
 const DeskMenu = ({ links }: Props) => {
     return (
-        <menu className="hidden space-x-6 md:flex items-center">
+        <menu className="hidden space-x-4 lg:flex items-center">
             {
                 links.map(link => (
                     !link.subpages
                         ?
-                        <Link key={link.id} href={link.href} className="hover:text-black">{link.name}</Link>
+                        <Link key={link.id} href={link.href} className="hover:text-accent nav-link">{link.name}</Link>
                         :
                         <CollapseLink key={link.id} groupName={link.name} links={link.subpages} />
                 ))
